@@ -1,0 +1,702 @@
+/* =========================================
+   FONTS
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap');
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0f0d0e;
+  color: #f4eeee;
+
+  font-family: 'Manrope', sans-serif;
+
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+  --background: #0f0d0e;
+  --background-light: #151112;
+
+  --text: #f4eeee;
+  --text-muted: #a69798;
+  --text-dark: #706263;
+
+  --accent: #d99a9a;
+  --accent-dark: #68494c;
+
+  --line: #47393b;
+
+  --container: 1100px;
+}
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+.container {
+  width: min(var(--container), 90%);
+  margin: 0 auto;
+}
+
+.section-label {
+  display: block;
+
+  color: var(--accent);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  text-align: center;
+
+  background:
+    radial-gradient(circle at center, rgba(125, 63, 67, 0.24), transparent 45%),
+    var(--background);
+}
+
+.hero::before {
+  content: '';
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  border-radius: 50%;
+
+  background: rgba(170, 80, 90, 0.08);
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+
+  padding: 20px;
+}
+
+.hero__label {
+  display: block;
+
+  margin-bottom: 30px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(70px, 12vw, 140px);
+
+  font-weight: 500;
+
+  line-height: 0.85;
+
+  letter-spacing: -5px;
+}
+
+.hero__title span {
+  color: var(--accent);
+}
+
+.hero__subtitle {
+  max-width: 550px;
+
+  margin: 40px auto 0;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+.hero__scroll {
+  position: absolute;
+
+  bottom: 35px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: var(--text-dark);
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 45px;
+
+  margin: 12px auto 0;
+
+  background: var(--text-dark);
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+  padding: 180px 0 120px;
+}
+
+.intro .container {
+  max-width: 900px;
+}
+
+.section-title {
+  margin-top: 25px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(55px, 8vw, 90px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -2px;
+}
+
+.intro__text {
+  max-width: 550px;
+
+  margin-top: 45px;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline-section {
+  padding-bottom: 100px;
+}
+
+.timeline {
+  position: relative;
+}
+
+/* Центральная линия */
+
+.timeline::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 1px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--line) 8%,
+    var(--line) 92%,
+    transparent
+  );
+}
+
+/* =========================================
+   MOMENT
+========================================= */
+
+.moment {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+
+  margin-bottom: 180px;
+}
+
+.moment:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+.moment:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.moment__content {
+  width: 44%;
+}
+
+.moment:nth-child(odd) .moment__content {
+  text-align: right;
+
+  padding-right: 50px;
+}
+
+.moment:nth-child(even) .moment__content {
+  padding-left: 50px;
+}
+
+/* =========================================
+   MOMENT LINE / DOT
+========================================= */
+
+.moment__line {
+  position: absolute;
+
+  top: 8px;
+  left: 50%;
+
+  width: 13px;
+  height: 13px;
+
+  border: 1px solid var(--accent);
+
+  border-radius: 50%;
+
+  background: var(--background);
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+}
+
+.moment__line::after {
+  content: '';
+
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+}
+
+/* =========================================
+   MOMENT TEXT
+========================================= */
+
+.moment__date {
+  margin-bottom: 15px;
+
+  color: var(--accent);
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.moment__title {
+  margin-bottom: 15px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(40px, 5vw, 58px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+}
+
+.moment__location {
+  margin-bottom: 25px;
+
+  color: var(--text-dark);
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+.moment__description {
+  color: var(--text-muted);
+
+  font-size: 13px;
+
+  line-height: 1.9;
+}
+
+/* =========================================
+   PHOTOS
+========================================= */
+
+.moment__photos {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+
+  margin-top: 35px;
+}
+
+.moment__photos--single {
+  display: block;
+}
+
+.photo {
+  overflow: hidden;
+
+  aspect-ratio: 4 / 5;
+
+  background: var(--background-light);
+}
+
+.photo--large {
+  aspect-ratio: 16 / 10;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: saturate(0.8);
+
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.photo:hover img {
+  transform: scale(1.05);
+
+  filter: saturate(1);
+}
+
+/* =========================================
+   THOUGHT
+========================================= */
+
+.thought {
+  max-width: 700px;
+
+  margin: 50px auto 180px;
+
+  text-align: center;
+}
+
+.thought__quote {
+  display: block;
+
+  margin-bottom: -15px;
+
+  color: var(--accent);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 80px;
+
+  line-height: 1;
+}
+
+.thought p {
+  font-family: 'Cormorant Garamond', serif;
+
+  color: var(--text);
+
+  font-size: clamp(35px, 5vw, 55px);
+
+  font-weight: 400;
+
+  line-height: 1.1;
+}
+
+/* =========================================
+   BIG PHOTO
+========================================= */
+
+.big-photo {
+  position: relative;
+
+  width: 100%;
+
+  margin: 100px 0 180px;
+
+  overflow: hidden;
+
+  background: var(--background-light);
+}
+
+.big-photo img {
+  height: min(75vh, 750px);
+
+  object-fit: cover;
+
+  opacity: 0.82;
+
+  transition: transform 1s ease;
+}
+
+.big-photo:hover img {
+  transform: scale(1.02);
+}
+
+.big-photo::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(to top, rgba(15, 13, 14, 0.75), transparent 50%);
+}
+
+.big-photo__caption {
+  position: absolute;
+
+  bottom: 40px;
+  left: 50%;
+
+  width: 90%;
+
+  transform: translateX(-50%);
+
+  z-index: 2;
+
+  text-align: center;
+
+  color: #fff;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(25px, 4vw, 40px);
+}
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 150px 0;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(125, 63, 67, 0.16),
+    transparent 50%
+  );
+}
+
+.final .container {
+  max-width: 850px;
+}
+
+.final__title {
+  margin-top: 30px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(55px, 9vw, 105px);
+
+  font-weight: 500;
+
+  line-height: 0.9;
+
+  letter-spacing: -3px;
+}
+
+.final__text {
+  margin-top: 45px;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+}
+
+.final__accent {
+  margin-top: 12px;
+
+  color: var(--accent);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 27px;
+}
+
+.final__heart {
+  margin-top: 60px;
+
+  color: var(--accent);
+
+  font-size: 25px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  padding: 40px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+
+  color: var(--text-dark);
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.footer span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--accent);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .hero__title {
+    letter-spacing: -2px;
+  }
+
+  .intro {
+    padding-top: 120px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .moment {
+    justify-content: flex-start !important;
+
+    margin-bottom: 120px;
+  }
+
+  .moment__content {
+    width: 100%;
+  }
+
+  .moment:nth-child(odd) .moment__content,
+  .moment:nth-child(even) .moment__content {
+    padding-left: 40px;
+    padding-right: 0;
+
+    text-align: left;
+  }
+
+  .moment__line {
+    left: 10px;
+  }
+
+  .moment__title {
+    font-size: 42px;
+  }
+
+  .moment__photos {
+    grid-template-columns: 1fr;
+  }
+
+  .thought {
+    margin: 30px 0 120px;
+    padding-left: 30px;
+  }
+
+  .big-photo {
+    width: 100vw;
+
+    margin-left: calc((100% - 100vw) / 2);
+
+    margin-bottom: 120px;
+  }
+
+  .big-photo img {
+    height: 65vh;
+  }
+
+  .final {
+    min-height: 80vh;
+
+    padding: 100px 0;
+  }
+
+  .final__title {
+    letter-spacing: -1px;
+  }
+}
